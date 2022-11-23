@@ -1,0 +1,28 @@
+--------------------------------componentDidMount equivalent--------------------------------------------
+In order to have this hook run only once (when a component is mounted), we need to set an 
+empty array as a hook dependency.
+
+useEffect(() => {
+  /* ComponentDidMount code */
+}, []);
+
+
+--------------------------------componentDidUpdate equivalent--------------------------------------------
+In order to have this hook run when the component is updated (this includes mounting), we need to set 
+at least one variable as hook's dependency (in this case, var1 and var2).
+
+useEffect(() => {
+  /* componentDidUpdate code */
+}, [var1, var2]);
+
+--------------------------------componentWillUnmount equivalent------------------------------------------
+
+In order to have this hook run when the component is unmounted, we need to return a function from the
+hook. If we want cleanup function to run only when component has unmounted, we need to set an empty 
+array. If we set one or more variables in the dependency array, cleanup will run at every re-render.
+
+useEffect(() => {
+  return () => {
+   /* componentWillUnmount code */
+  }
+}, []);
